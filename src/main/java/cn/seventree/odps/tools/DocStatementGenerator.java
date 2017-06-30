@@ -46,7 +46,7 @@ public class DocStatementGenerator {
         stringBuilder.append("{");
         stringBuilder.append("\r\n");
         for (int i=0; i<dbColumns.size();i++){
-            stringBuilder.append(dbColumns.get(i).getField());
+            stringBuilder.append(transField(dbColumns.get(i).getField()));
             stringBuilder.append(":");
             stringBuilder.append("/*");
             stringBuilder.append(dbColumns.get(i).getType());
@@ -63,6 +63,20 @@ public class DocStatementGenerator {
 
         }
         stringBuilder.append("}");
+        return stringBuilder.toString();
+    }
+
+    private String transField(String names){
+        StringBuilder stringBuilder=new StringBuilder();
+        int i=0;
+        for (String name:names.split("_")) {
+            if(i==0){
+                stringBuilder.append(name);
+            }else{
+                stringBuilder.append(StringUtils.capitalize(name));
+            }
+            i++;
+        }
         return stringBuilder.toString();
     }
 }
