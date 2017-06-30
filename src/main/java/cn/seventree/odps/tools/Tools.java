@@ -24,6 +24,7 @@ public class Tools {
             CreateOdpsStatementGenerator.getInstance().generate(dbColumns,path);
             CreateAdsStatementGenerator.getInstance().generate(dbColumns,path);
             DocStatementGenerator.getInstance().generate(dbColumns,path);
+            EntityGenerator.getInstance().generate(dbColumns,path);
         } catch (IOException e) {
             e.printStackTrace();
         }
