@@ -39,8 +39,6 @@ public class SelectStatementGenerator {
 
     private String transList2String(List<DBColumn> dbColumns){
         StringBuilder stringBuilder=new StringBuilder();
-        stringBuilder.append("(");
-        stringBuilder.append("\r\n");
         for (int i=0; i<dbColumns.size();i++){
 
             stringBuilder.append(dbColumns.get(i).getField());
@@ -49,7 +47,6 @@ public class SelectStatementGenerator {
             }
             stringBuilder.append("\r\n");
         }
-        stringBuilder.append(")");
         return stringBuilder.toString();
     }
 
