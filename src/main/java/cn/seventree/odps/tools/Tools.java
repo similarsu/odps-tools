@@ -2,17 +2,15 @@ package cn.seventree.odps.tools;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Created by Administrator on 2017/6/28.
  */
 public class Tools {
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         String odpsFile;
         String odpsFormatDir;
         try {
@@ -28,6 +26,10 @@ public class Tools {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }*/
+
+    public static void main(String[] args) {
+        MacVandorUtils.process("/home/coolearth/oui.csv","/home/coolearth/oui.csv.f","\"",",","，");
     }
 
     private static String readInput(String prompt) throws IOException {
@@ -39,4 +41,5 @@ public class Tools {
         }while (StringUtils.isBlank(result));
         return result;
     }
+
 }
